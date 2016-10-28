@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Login and registration</title>
+</head>
+
+<body>
+    <h2>login</h2>
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group" id="login">
+            <label for="email_log">Email:</label>
+            <input type="text" name="email" id="email_log">
+            <label for="pass_log">Password:</label>
+            <input type="password" name="password" id="pass_log">
+            <input type="submit" value="Login" class="form-control btn-primary">
+        </div>
+    </form>
+    <h2>New User Registration</h2>
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group" id="form">
+            <label for="fname_reg">First Name:</label>
+            <input type="text" name="first_name" id="fname_reg">
+            <label for="lname_reg">Last Name:</label>
+            <input type="text" name="last_name" id="lname-reg">
+            <label for="email_reg">Email:</label>
+            <input type="text" name="email" id="email_reg">
+            <label for="pass_reg">Password:</label>
+            <input type="password" name="password" id="pass_reg">
+            <label for="cpass_reg_reg">Confirm Password:</label>
+            <input type="password" name="c_password" id="cpass_reg">
+            <input type="submit" value="Register">
+        </div>
+    </form>
+    {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+</body>
+
+</html>
