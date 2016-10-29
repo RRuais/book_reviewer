@@ -13,7 +13,8 @@
     <h2>Latest Book Reviews</h2>
     {% for book in latest_books %}
     <h2>Title: <a href="{% url 'books_home' book.id %}">{{book.title}}</a></h2>
-    <p>Posted by: {{book.users.first_name}}</p>
+    <p>Posted by: <a href="{% url 'show_user' book.users.id %}">{{ book.users.first_name }}</a></p>
+
     <p>Posted on: {{book.created_at}}</p>
     {% endfor %}
     <h2>All Books With Reviews</h2>

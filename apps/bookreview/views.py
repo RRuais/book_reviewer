@@ -53,9 +53,7 @@ def show_user(request, id):
 
     return render(request, 'bookreview/show_user.html', context)
 
-def logout(request):
-    request.session.clear()
-    return redirect(reverse('index'))
+
 
 def books(request):
     return render(request, 'bookreview/add_book.html')
@@ -85,3 +83,7 @@ def review(request, id):
         book = Book.objects.get(id=id)
         result = Review.objects.create(review=request.POST['review'], rating=request.POST['rating'], users=user, book=book)
         return redirect('books_home', id=book.id)
+
+def logout(request):
+    request.session.clear()
+    return redirect(reverse('index'))

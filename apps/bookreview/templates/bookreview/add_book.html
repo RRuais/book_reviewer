@@ -7,6 +7,8 @@
 </head>
 
 <body>
+    <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'users_home' %}">Home</a>
     <h1>Add a Book and a Review</h1>
     <form action="{% url 'add_book' %}" method="post">
         {% csrf_token %}
